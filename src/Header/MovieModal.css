@@ -1,0 +1,42 @@
+.movie-modal-window {
+  position: fixed;
+  margin: 5px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* background-color:rgb(206, 194, 194); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.movie-modal-inner-window {
+  position: relative;
+  padding: 40px;
+  /* top: 20px; */
+  width: 100%;
+  height: auto;
+  max-width: 640px;
+  background-color: rgb(141, 138, 138);
+  /* background-color: rgb(44, 71, 226); */
+}
+
+.movie-modal-inner-window .movie-modal-close-btn {
+  position: absolute;
+  top: 25px;
+  right: 16px;
+  padding: 5px;
+}
+
+.movie-modal-inner-window .movie-modal-close-btn:hover {
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+.movie-modal-overview {
+  font-weight: bold;
+}
