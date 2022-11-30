@@ -55,25 +55,62 @@ import { Divider } from "@mui/material";
 import React from "react";
 import "./MovieModal.css";
 
+// const Card = (props) => {
+//   return (
+//     <div className="card">
+//       <div
+//         className="image"
+//         style={{
+//           backgroundImage: `url(${props.poster_path})`,
+//         }}
+//       />
+//       <div className="info">
+//         <h2>{props.title}</h2>
+//         <h4>{props.original_language}</h4>
+//         <p>{props.overview}</p>
+//       </div>
+//     </div>
+//   );
+// };
+
 const MovieModal = (props) => {
   return (
-    <div className="movie-modal-window">
-      <div className="movie-modal-inner-window">
-        <button className="movie-modal-close-btn" onClick={props.close}>
-          Close
-        </button>
-        {/* {props.children} */}
-        <h2>Movie: {props.title}</h2>
-        {/* <h5>Rating: {props.rating}</h5> */}
+    // <div className="page">
+    <div className="layout">
+      {/* <div className="card"> */}
+      <main className="image">
+        <img src={props.poster_path} alt="poster" />
+      </main>
+      <article className="info">
+        <h2>Moviee: {props.title}</h2>
         <h5>Language: {props.original_language}</h5>
         <h5>Release Date: {props.release_date}</h5>
         <p>
           <span className="movie-modal-overview">Overview: </span>
           {props.overview}
         </p>
-      </div>
+      </article>
+      {/* </div> */}
     </div>
+    // </div>
   );
+
+  // return (
+  //   <div className="movie-modal-window">
+  //     <div className="movie-modal-inner-window">
+  //       <button className="movie-modal-close-btn" onClick={props.close}>
+  //         Close
+  //       </button>
+  //       <h2>Movie: {props.title}</h2>
+  //       <h5>Language: {props.original_language}</h5>
+  //       <h5>Release Date: {props.release_date}</h5>
+  //       <p>
+  //         <span className="movie-modal-overview">Overview: </span>
+  //         {props.overview}
+  //       </p>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default MovieModal;

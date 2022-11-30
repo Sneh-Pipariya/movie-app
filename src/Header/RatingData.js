@@ -8,7 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Button } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 
 const RatingData = (props) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -24,7 +24,6 @@ const RatingData = (props) => {
   const handleSave = () => {
     setIsEditing(!isEditing);
     setField(field);
-    console.log({ Field: field });
     setIsEditing(false);
     setEditElemId();
   };
@@ -67,21 +66,9 @@ const RatingData = (props) => {
                         onChange={(event) => modifyMovieTitle(event, movie.id)}
                       />
                     ) : (
-                      <input value={movie.title} />
+                      // <TextField value={movie.title} />
+                      <Typography>{movie.title} </Typography>
                     )}
-
-                    {/* {isEditing && editElemId === movie.id ? (
-                      <input
-                        // id="field"
-                        type="text"
-                        // value={movie.title}
-                        // name={movie.title}
-                        value={field}
-                        onChange={inputChangeHandler}
-                      />
-                    ) : (
-                      <input value={movie.title} />
-                    )} */}
                   </TableCell>
 
                   <TableCell align="center">{movie.vote_average}</TableCell>
@@ -96,7 +83,6 @@ const RatingData = (props) => {
                           onClick={() => {
                             setIsEditing(false);
                             setEditElemId();
-                            // setField(field);
                           }}
                         >
                           Cancel

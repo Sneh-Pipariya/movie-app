@@ -19,6 +19,7 @@ import DataGrid from "./DataGrid";
 import DetailedGridData from "./DetailedGridData.js";
 import { TextField } from "@mui/material";
 import RatingDataTest from "./RatingDataTest.js";
+// import DarkModeToggle from "react-dark-mode-toggle";
 
 import RatingData from "./RatingData.js";
 const drawerWidth = 240;
@@ -29,15 +30,8 @@ function Header(props) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [filteredData, setFilteredData] = useState(movieData);
   const [showSection, setShowSection] = useState(0);
-  console.log({ movieData });
 
-  const handleSearch = (event) => {
-    setFilteredData(
-      movieData.filter((name) =>
-        name.title.toLowerCase().includes(event.target.value.toLowerCase())
-      )
-    );
-  };
+  console.log({ movieData });
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -78,14 +72,6 @@ function Header(props) {
             <MenuIcon />
           </IconButton>
 
-          {/* <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
-          </Box> */}
-
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Button sx={{ color: "#fff" }} onClick={() => setShowSection(0)}>
               Movie
@@ -107,19 +93,6 @@ function Header(props) {
             </Button>
           </Box>
           {showSection === 2 && <DetailedGridData movieData={movieData} />}
-
-          <TextField
-            sx={{
-              marginLeft: "10rem",
-              border: "1px solid darkGrey",
-              background: "white",
-            }}
-            id="filled-search"
-            onChange={handleSearch}
-            type="search"
-            variant="filled"
-            label="Enter Movie Name"
-          />
         </Toolbar>
       </AppBar>
 
@@ -145,9 +118,9 @@ function Header(props) {
       </Box>
 
       {/* Main content  */}
-      <Box component="main">
-        <DataGrid myMovieData={filteredData} />
-      </Box>
+      {/* <Box component="main">
+        <DataGrid />
+      </Box> */}
     </Box>
   );
 }
