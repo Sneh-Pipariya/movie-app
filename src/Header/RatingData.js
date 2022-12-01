@@ -13,11 +13,11 @@ import { Button, Typography } from "@mui/material";
 const RatingData = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editElemId, setEditElemId] = useState();
-  const [field, setField] = useState();
+  const [field, setField] = useState([]);
   const [editFlag, setEditFlag] = useState(false);
   const [message, setMessage] = useState("");
-  const [upMsg, setUpMsg] = useState(message);
-  console.log({ field: field });
+  // const [upMsg, setUpMsg] = useState(message);
+  // console.log({ field: field });
 
   const tableCellStyle = {
     fontWeight: "bold",
@@ -28,16 +28,8 @@ const RatingData = (props) => {
   const handleSave = (event, id) => {
     setIsEditing(!isEditing);
 
-    // if (editFlag == "true") {
-    //   const item = props.movieData.find((i) => i.id === id);
-    //   console.log({ itemInside: item });
-    //   item.title = event.target.value;
-    // }
-
     setField(field);
     console.log({ FieldInSave: field });
-
-    // setUpMsg(message);
 
     setIsEditing(false);
     setEditElemId();
@@ -47,21 +39,21 @@ const RatingData = (props) => {
     const item = props.movieData.find((i) => i.id === id);
     console.log({ item: event.target.value });
     // item.title = event.target.value;
+    setField(event.target.value);
+    // item.title = event.target.value;
     // console.log({ itemtitle: item.title });
     // console.log({ title: props.movieData.title });
-
-    setMessage(event.target.value);
-    console.log({ message: message });
-    // setMessage(event.target.value);
   };
 
   const savedData = (event, id) => {
     setIsEditing(!isEditing);
     // const a = props.movieData.find((i) => i.id === id);
     // a.title = event.target.value;
-    // setField(field);
-    setUpMsg(message);
+
+    setField(field);
+    // setUpMsg(message);
     console.log({ savedDataOfa: field });
+
     setIsEditing(false);
     setEditElemId();
   };
