@@ -51,7 +51,6 @@
 
 // export default MovieModal;
 
-import { Divider } from "@mui/material";
 import React from "react";
 import "./MovieModal.css";
 

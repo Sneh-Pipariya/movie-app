@@ -15,11 +15,12 @@ import MovieModal from "./MovieModal";
 import SortIcon from "@mui/icons-material/Sort";
 import { SortableItem } from "react-sort-list";
 
-const DataGrid = () => {
+const DataGrid = (props) => {
   const [open, setOpen] = useState(false);
   const [openId, setOpenId] = useState();
   const [filteredData, setFilteredData] = useState(movieData);
-  const [isSorted, setIsSorted] = useState(false);
+  const [updatedData, setUpdatedData] = useState([]);
+  const [flag, setFlag] = useState("asc");
 
   const searchHandler = (event) => {
     console.log("handlee searchingg");
@@ -45,15 +46,23 @@ const DataGrid = () => {
     setOpenId(id);
   };
 
-  const strAscending = [...filteredData].sort((a, b) =>
-    a.title > b.title ? 1 : -1
-  );
-  console.log({ AscendingData: strAscending });
-
-  const strDescending = [...filteredData].sort((a, b) =>
-    a.title > b.title ? -1 : 1
-  );
-  console.log({ DescendingData: strDescending });
+  const sortedTitle = () => {
+    if (flag === "asc") {
+      const ascendingData = filteredData.sort((a, b) =>
+        a.original_title > b.original_title ? 1 : -1
+      );
+      const newData = [...ascendingData];
+      setUpdatedData(newData);
+      setFlag("desc");
+    } else {
+      const descendingData = filteredData.sort((a, b) =>
+        a.original_title > b.original_title ? -1 : 1
+      );
+      const newData = [...descendingData];
+      setUpdatedData(newData);
+      setFlag("asc");
+    }
+  };
 
   return (
     <div className="window">
@@ -62,7 +71,7 @@ const DataGrid = () => {
           <Table sx={{ border: "1px solid grey" }} aria-label="simple table">
             <Toolbar>
               <Button onClick={() => console.log("button clikeddd")}>
-                <SortIcon onClick={strDescending} />
+                <SortIcon onClick={() => sortedTitle()} />
               </Button>
 
               <TextField
@@ -84,7 +93,6 @@ const DataGrid = () => {
                   key={movie.name}
                   // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  {}
                   <Button
                     align="center"
                     onClick={(event) => handleOpenModal(event, movie.id)}

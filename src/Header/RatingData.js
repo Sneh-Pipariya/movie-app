@@ -8,12 +8,16 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 const RatingData = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editElemId, setEditElemId] = useState();
   const [field, setField] = useState();
+  const [editFlag, setEditFlag] = useState(false);
+  const [message, setMessage] = useState("");
+  const [upMsg, setUpMsg] = useState(message);
+  console.log({ field: field });
 
   const tableCellStyle = {
     fontWeight: "bold",
@@ -21,22 +25,51 @@ const RatingData = (props) => {
     fontSize: 15,
   };
 
-  const handleSave = () => {
+  const handleSave = (event, id) => {
     setIsEditing(!isEditing);
+
+    // if (editFlag == "true") {
+    //   const item = props.movieData.find((i) => i.id === id);
+    //   console.log({ itemInside: item });
+    //   item.title = event.target.value;
+    // }
+
     setField(field);
+    console.log({ FieldInSave: field });
+
+    // setUpMsg(message);
+
     setIsEditing(false);
     setEditElemId();
   };
 
   const modifyMovieTitle = (event, id) => {
     const item = props.movieData.find((i) => i.id === id);
-    console.log({ ITEM: item });
-    item.title = event.target.value;
+    console.log({ item: event.target.value });
+    // item.title = event.target.value;
+    // console.log({ itemtitle: item.title });
+    // console.log({ title: props.movieData.title });
+
+    setMessage(event.target.value);
+    console.log({ message: message });
+    // setMessage(event.target.value);
   };
 
-  // const inputChangeHandler = (event) => {
-  //   setField(event.target.value);
-  // };
+  const savedData = (event, id) => {
+    setIsEditing(!isEditing);
+    // const a = props.movieData.find((i) => i.id === id);
+    // a.title = event.target.value;
+    // setField(field);
+    setUpMsg(message);
+    console.log({ savedDataOfa: field });
+    setIsEditing(false);
+    setEditElemId();
+  };
+
+  const handleCancel = () => {
+    // setIsEditing(false);
+    setEditElemId();
+  };
 
   return (
     <div className="rating-data-window">
@@ -72,18 +105,22 @@ const RatingData = (props) => {
                   </TableCell>
 
                   <TableCell align="center">{movie.vote_average}</TableCell>
+
                   <TableCell align="center">
                     {isEditing && editElemId === movie.id && (
                       <>
-                        <Button variant="contained" onClick={handleSave}>
+                        {/* <Button variant="contained" onClick={handleSave}> */}
+                        <Button
+                          variant="contained"
+                          onClick={(event) => savedData(event, movie.id)}
+                          // onClick={(event) => handleSave(event, movie.id)}
+                        >
                           Save
                         </Button>
                         <Button
                           variant="contained"
-                          onClick={() => {
-                            setIsEditing(false);
-                            setEditElemId();
-                          }}
+                          // onClick={(event) => handleCancel(event, movie.id)}
+                          onClick={() => handleCancel()}
                         >
                           Cancel
                         </Button>
@@ -94,8 +131,9 @@ const RatingData = (props) => {
                         variant="contained"
                         onClick={() => {
                           setIsEditing(true);
-                          setEditElemId(movie.id);
-                          setField(movie.title);
+                          setEditElemId(movie.id); //focus the field
+                          // setField(movie.title);
+                          setEditFlag(true);
                         }}
                       >
                         Edit

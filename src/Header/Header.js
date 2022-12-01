@@ -17,9 +17,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import DataGrid from "./DataGrid";
 import DetailedGridData from "./DetailedGridData.js";
-import { TextField } from "@mui/material";
-import RatingDataTest from "./RatingDataTest.js";
-// import DarkModeToggle from "react-dark-mode-toggle";
 
 import RatingData from "./RatingData.js";
 const drawerWidth = 240;
