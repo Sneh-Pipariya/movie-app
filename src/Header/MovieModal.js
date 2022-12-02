@@ -54,29 +54,10 @@
 import React from "react";
 import "./MovieModal.css";
 
-// const Card = (props) => {
-//   return (
-//     <div className="card">
-//       <div
-//         className="image"
-//         style={{
-//           backgroundImage: `url(${props.poster_path})`,
-//         }}
-//       />
-//       <div className="info">
-//         <h2>{props.title}</h2>
-//         <h4>{props.original_language}</h4>
-//         <p>{props.overview}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
 const MovieModal = (props) => {
   return (
     // <div className="page">
     <div className="layout">
-      {/* <div className="card"> */}
       <main className="image">
         <img src={props.poster_path} alt="poster" />
       </main>

@@ -34,23 +34,23 @@ function Header(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Movie App
-      </Typography>
-      <Divider />
-      <List>
-        {["Movie", "Rating", "R-rated"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+  // const drawer = (
+  //   <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+  //     <Typography variant="h6" sx={{ my: 2 }}>
+  //       Movie App
+  //     </Typography>
+  //     <Divider />
+  //     <List>
+  //       {["Movie", "Rating", "R-rated"].map((text, index) => (
+  //         <ListItem key={text} disablePadding>
+  //           <ListItemButton>
+  //             <ListItemText primary={text} />
+  //           </ListItemButton>
+  //         </ListItem>
+  //       ))}
+  //     </List>
+  //   </Box>
+  // );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -59,7 +59,7 @@ function Header(props) {
     <Box sx={{ display: "flex" }}>
       <AppBar component="nav">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
@@ -67,7 +67,7 @@ function Header(props) {
             sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
 
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Button sx={{ color: "#fff" }} onClick={() => setShowSection(0)}>
@@ -93,7 +93,7 @@ function Header(props) {
         </Toolbar>
       </AppBar>
 
-      <Box component="nav">
+      {/* <Box component="nav">
         <Drawer
           container={container}
           variant="temporary"
@@ -112,7 +112,7 @@ function Header(props) {
         >
           {drawer}
         </Drawer>
-      </Box>
+      </Box> */}
 
       {/* Main content  */}
       {/* <Box component="main">

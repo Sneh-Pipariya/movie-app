@@ -18,23 +18,12 @@ const DataGrid = (props) => {
   const [flag, setFlag] = useState("asc");
 
   const searchHandler = (event) => {
-    console.log("handlee searchingg");
     setFilteredData(
       movieData.filter((name) =>
         name.title.toLowerCase().includes(event.target.value.toLowerCase())
       )
     );
   };
-
-  console.log({ filteredDataaaaa: filteredData });
-
-  const tableCellStyle = {
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 25,
-  };
-
-  // console.log({ GridMovieData: props.myMovieData });
 
   const handleOpenModal = (event, id) => {
     setOpen(true);
@@ -65,7 +54,7 @@ const DataGrid = (props) => {
         <TableContainer component={Paper}>
           <Table sx={{ border: "1px solid grey" }} aria-label="simple table">
             <Toolbar>
-              <Button onClick={() => console.log("button clikeddd")}>
+              <Button>
                 <SortIcon onClick={() => sortedTitle()} />
               </Button>
 

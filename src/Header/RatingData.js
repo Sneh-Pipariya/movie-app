@@ -1,6 +1,6 @@
 import * as React from "react";
 // import ratingMovieData from "../movieData.json";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import "./DataGrid.css";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,8 +9,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Button, Typography, TextField } from "@mui/material";
-import { getValue } from "@mui/system";
+import { Button, TextField } from "@mui/material";
 
 const RatingData = (props) => {
   const [editElemId, setEditElemId] = useState();
@@ -27,6 +26,7 @@ const RatingData = (props) => {
     if (newData !== item.title) {
       item.title = newData;
     }
+    setEditElemId();
   };
 
   const handleCancel = () => {
@@ -38,7 +38,7 @@ const RatingData = (props) => {
     setEditElemId(id); //focus the field
   };
 
-  const getValue = (id) => {
+  const fetchValue = (id) => {
     const item = props.movieData.find((i) => i.id === id);
     if (newData && id === editElemId) {
       return newData;
@@ -78,7 +78,7 @@ const RatingData = (props) => {
                       }}
                       onChange={(event) => setNewData(event.target.value)}
                       // defaultValue={movie.title}
-                      value={getValue(movie.id)}
+                      value={fetchValue(movie.id)}
                     />
                   </TableCell>
 

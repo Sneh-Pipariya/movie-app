@@ -6,7 +6,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: rgb(247, 241, 241); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,10 +14,8 @@
 
 .rating-data-inner-window {
   position: relative;
-  /* padding: 32px; */
   width: 100%;
   height: 100%;
-  /* max-width: 1000px; */
   background-color: rgb(141, 138, 138);
   overflow: auto;
 }
@@ -26,12 +23,10 @@
 .window {
   position: fixed;
   padding: 0px;
-  /* margin: 0px; */
   top: 4rem;
   left: 0;
   width: 23%;
   height: 100%;
-  /* background-color: rgb(247, 241, 241); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,13 +34,9 @@
 }
 
 .inner-window {
-  /* position: relative; */
   position: static;
-  /* margin-right: 70rem; */
-  /* padding: 32px; */
   width: 100%;
   height: 100%;
-  /* max-width: 1000px; */
   background-color: rgb(141, 138, 138);
   overflow: auto;
 }
