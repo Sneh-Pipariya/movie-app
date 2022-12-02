@@ -35,6 +35,7 @@ const RatingData = (props) => {
   };
 
   const handleEdit = (id) => {
+    setNewData(props.movieData.title);
     setEditElemId(id); //focus the field
   };
 
