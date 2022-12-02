@@ -3,17 +3,12 @@ import movieData from "../movieData.json";
 import { useState } from "react";
 import "./DataGrid.css";
 import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Button, Toolbar, Typography } from "@mui/material";
+import { Button, Toolbar } from "@mui/material";
 import { TextField } from "@material-ui/core";
 import MovieModal from "./MovieModal";
 import SortIcon from "@mui/icons-material/Sort";
-import { SortableItem } from "react-sort-list";
 
 const DataGrid = (props) => {
   const [open, setOpen] = useState(false);
