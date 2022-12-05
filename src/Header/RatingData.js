@@ -31,7 +31,7 @@ const RatingData = (props) => {
 
   const handleCancel = () => {
     setEditElemId();
-    setNewData("");
+    // setNewData("");
   };
 
   const handleEdit = (id) => {
@@ -41,6 +41,7 @@ const RatingData = (props) => {
 
   const fetchValue = (id) => {
     const item = props.movieData.find((i) => i.id === id);
+    console.log({ ITEM: item });
     if (newData && id === editElemId) {
       return newData;
     } else {

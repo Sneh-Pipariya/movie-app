@@ -10,7 +10,7 @@ import { TextField } from "@material-ui/core";
 import MovieModal from "./MovieModal";
 import SortIcon from "@mui/icons-material/Sort";
 
-const DataGrid = (props) => {
+const DataGrid = () => {
   const [open, setOpen] = useState(false);
   const [openId, setOpenId] = useState();
   const [filteredData, setFilteredData] = useState(movieData);
